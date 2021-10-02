@@ -30,12 +30,15 @@ services:
       - internal
   webserver:
     container_name: shynet_webserver
+    labels:
+     - "traefik.http.routers.webserver.rule=Host(`linode-shynet.ianjmacintosh.com`)"
+     - "traefik.port=9002"
     image: nginx
     restart: always
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf    
     ports:
-      - 8080:80
+       - '9002:80'
     depends_on:
       - shynet
     networks:
