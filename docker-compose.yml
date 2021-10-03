@@ -31,8 +31,10 @@ services:
   webserver:
     container_name: shynet_webserver
     labels:
+     - "traefik.enable=true"
      - "traefik.http.routers.webserver.rule=Host(`linode-shynet.ianjmacintosh.com`)"
      - "traefik.port=9002"
+     - "traefik.docker.network=web"
     image: nginx
     restart: always
     volumes:
@@ -43,7 +45,10 @@ services:
       - shynet
     networks:
       - internal
+      - web
 volumes:
   shynet_db:
 networks:
   internal:
+  web:
+    external: true
