@@ -22,7 +22,7 @@ from django.contrib.messages import constants as messages
 load_dotenv()
 
 # Increment on new releases
-VERSION = "0.11.0"
+VERSION = "0.12.0"
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -299,7 +299,7 @@ else:
     EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS")
 
 # Auto fields
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # NPM
 
